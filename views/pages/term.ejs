@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <%- include("../includes/header") %>
     <title>Terms & Conditions</title>
@@ -7,152 +8,1030 @@
 
 <body class="bg-black text-white">
 
-<nav class="fixed top-0 left-0 w-full z-50 bg-transparent backdrop-blur-sm border-b border-white/10">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-        <a href="/" class="flex items-center">
-            <span class="text-white font-bold text-2xl">Game</span>
-            <span class="text-orange-500 font-bold text-2xl">O</span>
-            <span class="text-orange-500 font-bold text-2xl">fy</span>
-        </a>
-        <div class="hidden md:flex items-center space-x-6">
-            <a href="/" class="text-white hover:text-[#ff6b00]">Home</a>
-            <a href="/#casual-games" class="text-white hover:text-[#ff6b00]">Casual Games</a>
-            <a href="/terms" class="text-white hover:text-[#ff6b00]">Terms And Conditions</a>
-            <button onclick="openLoginModal()" 
-                class="bg-orange-500 hover:bg-orange-600 px-5 py-2 rounded-lg text-white font-semibold transition">
-                Subscribe
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-transparent backdrop-blur-sm border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+
+            <a href="/" class="flex items-center">
+                <span class="text-white font-bold text-2xl">Game</span>
+                <span class="text-orange-500 font-bold text-2xl">O</span>
+                <span class="text-orange-500 font-bold text-2xl">fy</span>
+            </a>
+
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="/" class="text-white hover:text-[#ff6b00]">
+                    Home
+                </a>
+
+                <a href="/#casual-games" class="text-white hover:text-[#ff6b00]">
+                    Casual Games
+                </a>
+
+                <a href="/terms" class="text-white hover:text-[#ff6b00]">
+                    Terms And Conditions
+                </a>
+
+                <button
+                    onclick="openLoginModal()"
+                    class="bg-orange-500 hover:bg-orange-600 px-5 py-2 rounded-lg text-white font-semibold transition"
+                >
+                    Subscribe
+                </button>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button
+                class="md:hidden text-white"
+                onclick="toggleMenu()"
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-8 w-8"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M4 6h16M4 12h16M4 18h16"
+                    />
+                </svg>
             </button>
         </div>
-        <button class="md:hidden text-white" onclick="toggleMenu()">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-        </button>
-    </div>
-    <div id="mobileMenu" class="hidden md:hidden bg-black/95 backdrop-blur-lg border-t border-white/10">
-        <div class="flex flex-col space-y-4 px-6 py-6 text-center">
-            <a href="/" class="text-white hover:text-orange-500">Home</a>
-            <a href="/#casual-games" class="text-white hover:text-orange-500">Casual Games</a>
-            <a href="/terms" class="text-white hover:text-orange-500">Terms And Condtions</a>
-            <button onclick="openLoginModal()" 
-                class="bg-orange-500 hover:bg-orange-600 px-5 py-3 rounded-lg text-white font-semibold">
-                Subscribe
-            </button>
+
+        <!-- Mobile Menu -->
+        <div
+            id="mobileMenu"
+            class="hidden md:hidden bg-black/95 backdrop-blur-lg border-t border-white/10"
+        >
+            <div class="flex flex-col space-y-4 px-6 py-6 text-center">
+
+                <a
+                    href="/"
+                    class="text-white hover:text-orange-500"
+                >
+                    Home
+                </a>
+
+                <a
+                    href="/#casual-games"
+                    class="text-white hover:text-orange-500"
+                >
+                    Casual Games
+                </a>
+
+                <a
+                    href="/terms"
+                    class="text-white hover:text-orange-500"
+                >
+                    Terms And Conditions
+                </a>
+
+                <button
+                    onclick="openLoginModal()"
+                    class="bg-orange-500 hover:bg-orange-600 px-5 py-3 rounded-lg text-white font-semibold"
+                >
+                    Subscribe
+                </button>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- Terms Content -->
+    <div class="pt-28 pb-16 px-4">
+
+        <div class="max-w-4xl mx-auto space-y-6 text-gray-300 leading-7">
+
+            <h1 class="text-4xl font-bold text-orange-500">
+                Terms and Conditions
+            </h1>
+
+            <p>
+                <strong>GameofYY Subscription Gaming Service – South Africa</strong>
+            </p>
+
+            <p>
+                <strong>Service Name:</strong> GameofYY
+                <br>
+
+                <strong>Website:</strong>
+                <a
+                    href="https://telza.gameofyy.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-orange-400 underline hover:text-orange-300"
+                >
+                    https://telza.gameofyy.com
+                </a>
+                <br>
+
+                <strong>Operator:</strong>
+                Telkom SA SOC Limited ("Telkom")
+                <br>
+
+                <strong>Subscription Fee:</strong>
+                R7.00 per day, inclusive of VAT
+                <br>
+
+                <strong>Billing Frequency:</strong>
+                Daily recurring billing
+                <br>
+
+                <strong>Effective Date:</strong>
+                09 September 2026
+            </p>
+
+            <p>
+                These Terms and Conditions ("Terms") govern the use of the
+                GameofYY subscription gaming service ("Service") offered to
+                customers of Telkom SA SOC Limited in South Africa.
+            </p>
+
+            <p>
+                By subscribing to, accessing or using the Service, you
+                acknowledge that you have read, understood and agree to be
+                bound by these Terms.
+            </p>
+
+            <!-- 1 -->
+            <h2 class="text-xl text-orange-400 font-semibold">
+                1. Definitions
+            </h2>
+
+            <p>
+                For purposes of these Terms:
+            </p>
+
+            <ul class="list-disc pl-6">
+                <li>
+                    <strong>1.1 "Service"</strong> means the GameofYY
+                    subscription-based mobile gaming portal providing access
+                    to games, gaming-related content, competitions, challenges,
+                    entertainment and related digital services.
+                </li>
+
+                <li>
+                    <strong>1.2 "Subscriber", "User" or "You"</strong> means
+                    the customer who subscribes to or accesses the Service.
+                </li>
+
+                <li>
+                    <strong>1.3 "Operator" or "Telkom"</strong> means Telkom
+                    SA SOC Limited, being the participating South African
+                    mobile network operator through which the Service may be
+                    billed.
+                </li>
+
+                <li>
+                    <strong>1.4 "Provider"</strong> means the owner and/or
+                    operator of GameofYY and its authorised service providers,
+                    technology partners, content providers, game publishers
+                    and other authorised partners.
+                </li>
+
+                <li>
+                    <strong>1.5 "Subscription"</strong> means the recurring
+                    subscription to the Service.
+                </li>
+
+                <li>
+                    <strong>1.6 "Subscription Fee"</strong> means the amount
+                    charged for access to the Service, being R7.00 per day,
+                    inclusive of VAT.
+                </li>
+
+                <li>
+                    <strong>1.7 "Personal Information"</strong> has the
+                    meaning given to it under the Protection of Personal
+                    Information Act 4 of 2013 ("POPIA").
+                </li>
+            </ul>
+
+            <!-- 2 -->
+            <h2 class="text-xl text-orange-400 font-semibold">
+                2. Eligibility
+            </h2>
+
+            <ul class="list-disc pl-6">
+                <li>
+                    <strong>2.1</strong> You must be at least 18 years old to
+                    subscribe to and use the Service, unless the Service is
+                    expressly made available to minors and the required consent
+                    of a parent or legal guardian has been obtained.
+                </li>
+
+                <li>
+                    <strong>2.2</strong> You must be the authorised user of
+                    the mobile number used to subscribe to the Service.
+                </li>
+
+                <li>
+                    <strong>2.3</strong> The Service is available only to
+                    customers of supported South African mobile networks and
+                    subject to network and technical availability.
+                </li>
+
+                <li>
+                    <strong>2.4</strong> The Provider and/or Operator may
+                    refuse, suspend or terminate access where there is
+                    reasonable evidence of fraud, abuse, unlawful activity or
+                    a breach of these Terms.
+                </li>
+            </ul>
+
+            <!-- 3 -->
+            <h2 class="text-xl text-orange-400 font-semibold">
+                3. Subscription and Billing
+            </h2>
+
+            <p>
+                <strong>3.1</strong> By completing the applicable subscription
+                journey and confirming your subscription, you expressly
+                authorise the applicable billing mechanism to charge the
+                Subscription Fee.
+            </p>
+
+            <p>
+                <strong>3.2</strong> The Subscription Fee is:
+            </p>
+
+            <p class="font-semibold text-white">
+                Daily subscription of R7.00 per day, inclusive of VAT.
+            </p>
+
+            <p>
+                <strong>3.3</strong> The Subscription is a
+                <strong>daily recurring subscription</strong> and the
+                Subscription Fee will recur automatically each day until the
+                Subscription is cancelled.
+            </p>
+
+            <p>
+                <strong>3.4</strong> The applicable price and recurring nature
+                of the Subscription will be clearly communicated to you during
+                the subscription process before confirmation.
+            </p>
+
+            <p>
+                <strong>3.5</strong> Depending on the applicable subscription
+                journey, billing may be processed through the Operator's
+                approved billing mechanism, including deduction from available
+                prepaid airtime, mobile account balance or other supported
+                billing method.
+            </p>
+
+            <p>
+                <strong>3.6</strong> A confirmation and/or welcome message may
+                be sent following successful subscription.
+            </p>
+
+            <p>
+                <strong>3.7</strong> Where there are insufficient funds or
+                airtime to process a daily renewal, the applicable billing
+                mechanism may retry the charge in accordance with the
+                Operator's applicable billing rules.
+            </p>
+
+            <p>
+                <strong>3.8</strong> Standard mobile data charges may apply
+                when accessing the Service. Such data charges are separate
+                from the Subscription Fee and are determined by the applicable
+                mobile network provider.
+            </p>
+
+            <p>
+                <strong>3.9</strong> Subscribing to the Service does not
+                guarantee unlimited mobile data or internet access.
+            </p>
+
+            <!-- 4 -->
+            <h2 class="text-xl text-orange-400 font-semibold">
+                4. Free Trials and Promotional Offers
+            </h2>
+
+            <p>
+                <strong>4.1</strong> From time to time, the Provider and/or
+                Operator may offer a free trial or promotional subscription.
+            </p>
+
+            <p>
+                <strong>4.2</strong> Where a free trial is offered, the
+                duration and applicable conditions will be communicated at
+                the time of subscription.
+            </p>
+
+            <p>
+                <strong>4.3</strong> Unless otherwise stated, a free trial may
+                convert automatically into the paid daily Subscription at
+                <strong>R7.00 per day, inclusive of VAT</strong>, after the
+                trial period ends.
+            </p>
+
+            <p>
+                <strong>4.4</strong> You may cancel before the end of the
+                applicable free trial to prevent the paid Subscription from
+                commencing.
+            </p>
+
+            <p>
+                <strong>4.5</strong> Promotional offers may be subject to
+                additional terms and conditions.
+            </p>
+
+            <!-- 5 -->
+            <h2 class="text-xl text-orange-400 font-semibold">
+                5. How to Subscribe
+            </h2>
+
+            <p>
+                You may subscribe to GameofYY through one or more approved
+                channels, which may include:
+            </p>
+
+            <ul class="list-disc pl-6">
+                <li>SMS</li>
+                <li>USSD</li>
+                <li>Direct Carrier Billing</li>
+                <li>Mobile web/WAP portal</li>
+                <li>Operator self-service channels</li>
+                <li>MyTelkom App or other applicable Operator channels</li>
+                <li>Promotional banners</li>
+                <li>Landing pages</li>
+                <li>Other approved digital or mobile channels</li>
+            </ul>
+
+            <p>
+                A confirmation SMS or other electronic confirmation may be
+                provided following successful subscription.
+            </p>
+
+            <!-- 6 -->
+            <h2 class="text-xl text-orange-400 font-semibold">
+                6. Cancellation
+            </h2>
+
+            <p>
+                <strong>6.1</strong> You may cancel your GameofYY Subscription
+                at any time.
+            </p>
+
+            <p>
+                <strong>6.2</strong> Cancellation may be performed through
+                one or more of the following methods, depending on the
+                applicable subscription journey:
+            </p>
+
+            <ul class="list-disc pl-6">
+                <li>Sending <strong>STOP</strong> to the applicable shortcode</li>
+                <li>Using the applicable USSD cancellation option</li>
+                <li>Through the Operator's approved self-service channels</li>
+                <li>Through the applicable Telkom customer management channels</li>
+                <li>Through the Service website or portal</li>
+                <li>By contacting the applicable customer support channel</li>
+            </ul>
+
+            <p>
+                <strong>6.3</strong> Once cancellation has been successfully
+                processed, no further recurring Subscription Fees will be
+                charged.
+            </p>
+
+            <p>
+                <strong>6.4</strong> Cancellation does not ordinarily entitle
+                you to a refund of a Subscription Fee already validly charged
+                for a period in which the Service was available, except where
+                a refund is required by applicable law or otherwise determined
+                to be appropriate following investigation of a billing dispute.
+            </p>
+
+            <p>
+                <strong>6.5</strong> If you experience difficulty cancelling
+                the Service, you should contact the applicable customer support
+                channel for assistance.
+            </p>
+
+            <!-- 7 -->
+            <h2 class="text-xl text-orange-400 font-semibold">
+                7. Access to the Service
+            </h2>
+
+            <p>
+                <strong>7.1</strong> Following successful subscription, you may
+                access GameofYY gaming content during the period for which your
+                Subscription remains active.
+            </p>
+
+            <p>
+                <strong>7.2</strong> Access to the Service requires a
+                compatible device and an active internet or mobile data
+                connection unless particular content is expressly made
+                available offline.
+            </p>
+
+            <p>
+                <strong>7.3</strong> The range of games, content and features
+                available through GameofYY may change from time to time.
+            </p>
+
+            <p>
+                <strong>7.4</strong> Certain games or content may be subject
+                to additional terms, age restrictions or conditions imposed by
+                the relevant game publisher or content owner.
+            </p>
+
+            <p>
+                <strong>7.5</strong> The Provider does not guarantee that
+                every game or item of content will remain available for the
+                duration of your Subscription.
+            </p>
+
+            <!-- 8 -->
+            <h2 class="text-xl text-orange-400 font-semibold">
+                8. Games, Third-Party Content and In-App Features
+            </h2>
+
+            <p>
+                <strong>8.1</strong> GameofYY may include games, content,
+                software, services or links supplied by third-party developers,
+                publishers or content providers.
+            </p>
+
+            <p>
+                <strong>8.2</strong> Third-party games and content may be
+                subject to separate terms, privacy policies, age restrictions
+                and usage requirements.
+            </p>
+
+            <p>
+                <strong>8.3</strong> The Provider does not necessarily own all
+                games or third-party content made available through the Service.
+            </p>
+
+            <p>
+                <strong>8.4</strong> Where applicable, additional purchases,
+                subscriptions, virtual items or other charges offered by a
+                third party are separate from the GameofYY Subscription and may
+                be subject to additional terms.
+            </p>
+
+            <p>
+                <strong>8.5</strong> Users are responsible for reviewing any
+                applicable third-party terms before making additional purchases
+                or using third-party services.
+            </p>
+
+            <!-- 9 -->
+            <h2 class="text-xl text-orange-400 font-semibold">
+                9. Acceptable Use and Fair Play
+            </h2>
+
+            <p>You agree not to:</p>
+
+            <ul class="list-disc pl-6">
+                <li>Use the Service for any unlawful, fraudulent or unauthorised purpose.</li>
+                <li>Attempt to gain unauthorised access to the Service, servers or systems.</li>
+                <li>Hack, disrupt, damage or interfere with the Service.</li>
+                <li>Copy, reproduce, modify, distribute or commercially exploit the Service without authorisation.</li>
+                <li>Reverse engineer or attempt to extract source code from the Service where prohibited by law.</li>
+                <li>Use bots, scripts, automation tools, exploits or other mechanisms to manipulate gameplay.</li>
+                <li>Manipulate leaderboards, scores, competitions, challenges or reward mechanisms.</li>
+                <li>Engage in cheating, collusion, fraudulent gameplay or abuse of promotional offers.</li>
+                <li>Share or misuse authentication credentials where applicable.</li>
+                <li>Introduce malware, viruses or other harmful code.</li>
+                <li>Interfere with another user's enjoyment or legitimate use of the Service.</li>
+            </ul>
+
+            <p>
+                The Provider may suspend or terminate access where it reasonably
+                believes that a User has engaged in prohibited or fraudulent
+                activity.
+            </p>
+
+            <!-- 10 -->
+            <h2 class="text-xl text-orange-400 font-semibold">
+                10. Competitions, Tournaments and Rewards
+            </h2>
+
+            <p>
+                <strong>10.1</strong> From time to time, GameofYY may offer
+                competitions, tournaments, challenges, leaderboards, rewards
+                or promotional campaigns.
+            </p>
+
+            <p>
+                <strong>10.2</strong> Participation in a particular promotion
+                may be subject to additional competition or promotional terms
+                and conditions.
+            </p>
+
+            <p>
+                <strong>10.3</strong> Additional eligibility requirements may
+                apply to specific competitions or tournaments.
+            </p>
+
+            <p>
+                <strong>10.4</strong> The Provider reserves the right to verify
+                participant eligibility and the validity of results.
+            </p>
+
+            <p>
+                <strong>10.5</strong> The Provider may disqualify a participant
+                where there is reasonable evidence of cheating, fraud,
+                manipulation, abuse or a breach of applicable promotional rules.
+            </p>
+
+            <p>
+                <strong>10.6</strong> Prizes and rewards are subject to the
+                specific terms applicable to the relevant promotion.
+            </p>
+
+            <!-- 11 -->
+            <h2 class="text-xl text-orange-400 font-semibold">
+                11. Intellectual Property
+            </h2>
+
+            <p>
+                <strong>11.1</strong> All intellectual property associated with
+                GameofYY, including trademarks, logos, software, platform
+                technology, graphics, text, designs and original content,
+                remains the property of the Provider or its respective licensors.
+            </p>
+
+            <p>
+                <strong>11.2</strong> Games and third-party content remain the
+                intellectual property of their respective owners.
+            </p>
+
+            <p>
+                <strong>11.3</strong> Your Subscription grants you a limited,
+                personal, non-exclusive and non-transferable right to access
+                and use the Service for its intended purpose during an active
+                Subscription.
+            </p>
+
+            <p>
+                <strong>11.4</strong> No ownership or other intellectual
+                property rights are transferred to you through your Subscription.
+            </p>
+
+            <!-- 12 -->
+            <h2 class="text-xl text-orange-400 font-semibold">
+                12. Service Availability
+            </h2>
+
+            <p>
+                <strong>12.1</strong> The Service is provided on an
+                “as available” and “as is” basis, subject to applicable law.
+            </p>
+
+            <p>
+                <strong>12.2</strong> The Provider does not guarantee that the
+                Service will always be uninterrupted, available or error-free.
+            </p>
+
+            <p>
+                <strong>12.3</strong> Access may be temporarily interrupted
+                due to maintenance, upgrades, technical faults, network
+                failures, device incompatibility, third-party services or
+                circumstances beyond the Provider's reasonable control.
+            </p>
+
+            <p>
+                <strong>12.4</strong> The Provider may modify, suspend or
+                discontinue particular games, content or features from time to
+                time.
+            </p>
+
+            <!-- 13 -->
+            <h2 class="text-xl text-orange-400 font-semibold">
+                13. Disclaimer
+            </h2>
+
+            <p>
+                <strong>13.1</strong> GameofYY is provided primarily for
+                entertainment and gaming purposes.
+            </p>
+
+            <p>
+                <strong>13.2</strong> The Provider does not guarantee that the
+                Service or any particular game will meet your individual
+                expectations or preferences.
+            </p>
+
+            <p>
+                <strong>13.3</strong> Game performance may vary depending on
+                the User's device, operating system, internet connection,
+                network conditions and other technical factors.
+            </p>
+
+            <p>
+                <strong>13.4</strong> GameofYY may contain third-party content,
+                advertisements, links or services. The Provider does not
+                necessarily endorse or control third-party content.
+            </p>
+
+            <p>
+                <strong>13.5</strong> Nothing in these Terms excludes any
+                rights or protections that cannot lawfully be excluded under
+                South African law.
+            </p>
+
+            <!-- 14 -->
+            <h2 class="text-xl text-orange-400 font-semibold">
+                14. Limitation of Liability
+            </h2>
+
+            <p>
+                <strong>14.1</strong> To the maximum extent permitted by
+                applicable South African law, the Provider and Operator will
+                not be responsible for losses arising from:
+            </p>
+
+            <ul class="list-disc pl-6">
+                <li>Network interruptions or outages.</li>
+                <li>Device incompatibility or device failure.</li>
+                <li>Loss of data resulting from circumstances outside the Provider's reasonable control.</li>
+                <li>Unauthorised use of a User's handset, SIM card or account where the Provider or Operator was not responsible for such unauthorised use.</li>
+                <li>Third-party games, content or services.</li>
+                <li>Temporary unavailability of the Service.</li>
+                <li>Events beyond the reasonable control of the Provider or Operator.</li>
+            </ul>
+
+            <p>
+                <strong>14.2</strong> Nothing in these Terms limits or excludes
+                any liability or consumer right that cannot lawfully be limited
+                or excluded under applicable law, including the Consumer
+                Protection Act.
+            </p>
+
+            <!-- 15 -->
+            <h2 class="text-xl text-orange-400 font-semibold">
+                15. Refunds and Billing Disputes
+            </h2>
+
+            <p>
+                <strong>15.1</strong> Subscription charges that have been
+                validly incurred following a confirmed subscription are
+                generally not refundable solely because the User did not access
+                or use the Service, subject always to applicable law.
+            </p>
+
+            <p>
+                <strong>15.2</strong> If you believe that you have been
+                incorrectly charged, you should raise the dispute as soon as
+                reasonably possible through the applicable Operator customer
+                care or designated GameofYY support channel.
+            </p>
+
+            <p>
+                <strong>15.3</strong> Billing disputes may be investigated
+                against the applicable subscription and billing records.
+            </p>
+
+            <p>
+                <strong>15.4</strong> Where an incorrect charge is confirmed,
+                any applicable refund or adjustment will be handled in
+                accordance with the Operator's and/or Provider's applicable
+                refund processes and South African law.
+            </p>
+
+            <!-- 16 -->
+            <h2 class="text-xl text-orange-400 font-semibold">
+                16. Privacy and Data Protection
+            </h2>
+
+            <p>
+                <strong>16.1</strong> Personal Information collected in
+                connection with the Service will be processed in accordance
+                with POPIA and other applicable data protection legislation.
+            </p>
+
+            <p>
+                <strong>16.2</strong> Information that may be processed may
+                include:
+            </p>
+
+            <ul class="list-disc pl-6">
+                <li>Mobile number</li>
+                <li>Subscription status</li>
+                <li>Device information</li>
+                <li>Technical information</li>
+                <li>Usage and interaction data</li>
+                <li>Service activity</li>
+                <li>Customer support records</li>
+                <li>Information required to administer competitions or promotions</li>
+            </ul>
+
+            <p>
+                <strong>16.3</strong> Personal Information may be processed
+                for purposes including:
+            </p>
+
+            <ul class="list-disc pl-6">
+                <li>Providing and administering the Service</li>
+                <li>Processing and validating billing</li>
+                <li>Customer support</li>
+                <li>Service analytics and reporting</li>
+                <li>Fraud prevention and security</li>
+                <li>Improving the Service</li>
+                <li>Administering competitions and promotions</li>
+                <li>Direct marketing where permitted by law and/or where the required consent has been obtained</li>
+            </ul>
+
+            <p>
+                <strong>16.4</strong> Personal Information will not be
+                processed for purposes incompatible with applicable law.
+            </p>
+
+            <!-- 17 -->
+            <h2 class="text-xl text-orange-400 font-semibold">
+                17. Direct Marketing
+            </h2>
+
+            <p>
+                <strong>17.1</strong> Where permitted by applicable law, the
+                Provider and/or Operator may communicate with Users regarding
+                the Service, related products, promotions or other relevant
+                offerings.
+            </p>
+
+            <p>
+                <strong>17.2</strong> Users may exercise applicable rights to
+                opt out of direct marketing communications.
+            </p>
+
+            <p>
+                <strong>17.3</strong> Service-related communications,
+                including subscription confirmations, billing notifications,
+                cancellation confirmations and important service notices, may
+                continue where reasonably necessary to administer the Service.
+            </p>
+
+            <!-- 18 -->
+            <h2 class="text-xl text-orange-400 font-semibold">
+                18. Consumer and Regulatory Rights
+            </h2>
+
+            <p>
+                Nothing in these Terms is intended to limit or exclude any
+                statutory right available to you.
+            </p>
+
+            <p>
+                Your use of the Service is subject to applicable South African
+                legislation and regulatory requirements, which may include:
+            </p>
+
+            <ul class="list-disc pl-6">
+                <li>
+                    <strong>Consumer Protection Act 68 of 2008 ("CPA")</strong>
+                </li>
+                <li>
+                    <strong>
+                        Electronic Communications and Transactions Act 25 of
+                        2002 ("ECTA")
+                    </strong>
+                </li>
+                <li>
+                    <strong>
+                        Protection of Personal Information Act 4 of 2013
+                        ("POPIA")
+                    </strong>
+                </li>
+                <li>
+                    <strong>
+                        Electronic Communications Act 36 of 2005 ("ECA")
+                    </strong>
+                </li>
+                <li>Applicable ICASA regulations and requirements</li>
+                <li>
+                    Applicable WASPA rules, codes or requirements where relevant
+                    to the Service and its delivery channels
+                </li>
+            </ul>
+
+            <!-- 19 -->
+            <h2 class="text-xl text-orange-400 font-semibold">
+                19. Customer Support and Complaints
+            </h2>
+
+            <p>
+                For assistance relating to the Service, subscription, billing,
+                cancellation or technical issues, Users may contact:
+            </p>
+
+            <p>
+                <strong>Customer Care:</strong> 080181
+            </p>
+
+            <p>
+                Where a complaint relates specifically to mobile network
+                billing or an Operator-managed subscription process, the User
+                may also contact the applicable Operator customer care channel.
+            </p>
+
+            <!-- 20 -->
+            <h2 class="text-xl text-orange-400 font-semibold">
+                20. Changes to the Service and These Terms
+            </h2>
+
+            <p>
+                <strong>20.1</strong> The Provider may update, modify or improve
+                the Service from time to time.
+            </p>
+
+            <p>
+                <strong>20.2</strong> These Terms may be amended where
+                reasonably necessary, subject to applicable law and any
+                required notification.
+            </p>
+
+            <p>
+                <strong>20.3</strong> Updated Terms may be published on the
+                Service website or otherwise communicated to Users where
+                required.
+            </p>
+
+            <p>
+                <strong>20.4</strong> If a material change requires User
+                notification or consent under applicable law or regulatory
+                requirements, the appropriate notification or consent process
+                will be followed.
+            </p>
+
+            <!-- 21 -->
+            <h2 class="text-xl text-orange-400 font-semibold">
+                21. Suspension or Termination
+            </h2>
+
+            <p>
+                <strong>21.1</strong> The Provider and/or Operator may suspend
+                or terminate access to the Service where reasonably necessary,
+                including where:
+            </p>
+
+            <ul class="list-disc pl-6">
+                <li>The User breaches these Terms.</li>
+                <li>Fraudulent or abusive activity is suspected.</li>
+                <li>The Service is discontinued.</li>
+                <li>Required by law or a regulatory authority.</li>
+                <li>Technical, security or operational circumstances require suspension.</li>
+            </ul>
+
+            <p>
+                <strong>21.2</strong> Where reasonably practicable, Users will
+                be provided with appropriate notice of material termination or
+                suspension.
+            </p>
+
+            <p>
+                <strong>21.3</strong> Termination of the Service will not
+                affect rights or obligations that accrued before termination.
+            </p>
+
+            <!-- 22 -->
+            <h2 class="text-xl text-orange-400 font-semibold">
+                22. Force Majeure
+            </h2>
+
+            <p>
+                The Provider and/or Operator will not be responsible for failure
+                or delay in performing obligations where such failure or delay
+                results from circumstances beyond reasonable control, including
+                network failures, telecommunications outages, natural disasters,
+                acts of government, civil unrest, cyber incidents, power
+                failures or other force majeure events.
+            </p>
+
+            <!-- 23 -->
+            <h2 class="text-xl text-orange-400 font-semibold">
+                23. Severability
+            </h2>
+
+            <p>
+                If any provision of these Terms is found to be unlawful, invalid
+                or unenforceable, that provision will be severed or limited to
+                the extent necessary, and the remaining provisions will continue
+                in full force and effect.
+            </p>
+
+            <!-- 24 -->
+            <h2 class="text-xl text-orange-400 font-semibold">
+                24. No Waiver
+            </h2>
+
+            <p>
+                Failure by the Provider or Operator to enforce any provision of
+                these Terms will not constitute a waiver of that provision or
+                any other right.
+            </p>
+
+            <!-- 25 -->
+            <h2 class="text-xl text-orange-400 font-semibold">
+                25. Governing Law
+            </h2>
+
+            <p>
+                These Terms are governed by and construed in accordance with
+                the laws of the <strong>Republic of South Africa</strong>.
+            </p>
+
+            <p>
+                Any dispute will be subject to the applicable dispute-resolution
+                mechanisms and jurisdiction provided for under South African
+                law.
+            </p>
+
+            <!-- 26 -->
+            <h2 class="text-xl text-orange-400 font-semibold">
+                26. Entire Agreement
+            </h2>
+
+            <p>
+                These Terms, together with any applicable promotional terms,
+                competition rules, privacy notices and other terms expressly
+                incorporated by reference, constitute the agreement between the
+                User and the Provider in relation to the Service.
+            </p>
+
+            <p>
+                Where there is a conflict between these Terms and mandatory
+                provisions of applicable law, the mandatory provisions of
+                applicable law will prevail.
+            </p>
+
+            <!-- Service Information -->
+            <div class="mt-10 border-t border-gray-800 pt-8">
+
+                <h2 class="text-2xl text-orange-400 font-semibold">
+                    SERVICE INFORMATION
+                </h2>
+
+                <p class="mt-4">
+                    <strong>Service:</strong> GameofYY
+                </p>
+
+                <p>
+                    <strong>Subscription:</strong> Daily recurring
+                </p>
+
+                <p>
+                    <strong>Subscription Fee:</strong>
+                    R7.00 per day, inclusive of VAT
+                </p>
+
+                <p>
+                    <strong>Website:</strong>{" "}
+                    <a
+                        href="https://telza.gameofyy.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-orange-400 underline hover:text-orange-300"
+                    >
+                        https://telza.gameofyy.com
+                    </a>
+                </p>
+
+                <p>
+                    <strong>Effective Date:</strong> 09 September 2026
+                </p>
+
+            </div>
+
+            <!-- Important Notice -->
+            <div class="mt-10 rounded-xl border border-orange-500/30 bg-gray-900 p-6">
+
+                <h2 class="text-2xl text-orange-400 font-semibold">
+                    IMPORTANT SUBSCRIBER NOTICE
+                </h2>
+
+                <p class="mt-4 font-semibold text-white">
+                    GameofYY is a daily recurring subscription service costing
+                    R7.00 per day, inclusive of VAT. The subscription will
+                    continue and the applicable fee will be charged each day
+                    until you cancel the Service.
+                </p>
+
+                <p class="mt-4">
+                    Please ensure that you understand the recurring nature of
+                    the subscription before confirming your subscription.
+                </p>
+
+            </div>
+
         </div>
     </div>
-</nav>
-<div class="pt-28 pb-16 px-4">
-    <div class="max-w-4xl mx-auto space-y-6 text-gray-300 leading-7">
 
-        <h1 class="text-4xl font-bold text-orange-500">Terms and Conditions</h1>
-
-        <p><strong>GameofYY Subscription Service – South Africa</strong></p>
-
-        <p><strong>Service Name:</strong> GameofYY<br>
-        <strong>Website:</strong> https://telza.gameofyy.com/</p>
-
-        <p>
-            These Terms and Conditions govern the use of the GameofYY subscription
-            gaming service offered to customers of a participating Mobile Network Operator
-            in South Africa. By subscribing to or using the Service, you agree to be bound by these Terms.
-        </p>
-
-        <h2 class="text-xl text-orange-400 font-semibold">1. Definitions</h2>
-        <ul class="list-disc pl-6">
-            <li>Service means the GameofYY subscription-based mobile gaming portal providing access to games and digital content.</li>
-            <li>Subscriber / User / You means the mobile customer subscribing to the Service.</li>
-            <li>Operator means the participating South African mobile network operator billing the subscription.</li>
-            <li>Provider means the owner/operator of GameofYY.</li>
-            <li>Subscription Fee means the recurring fee charged for access.</li>
-        </ul>
-
-        <h2 class="text-xl text-orange-400 font-semibold">2. Eligibility</h2>
-        <ul class="list-disc pl-6">
-            <li>You must be at least 18 years old or have guardian consent.</li>
-            <li>You must be the authorised user of the mobile number.</li>
-            <li>Service is available only on supported South African networks.</li>
-        </ul>
-
-        <h2 class="text-xl text-orange-400 font-semibold">3. Subscription and Billing</h2>
-        <ul class="list-disc pl-6">
-            <li>By subscribing, you authorise billing via Operator.</li>
-            <li>Daily: R7 per day</li>
-            <li>Charges recur automatically until cancelled.</li>
-            <li>Standard data charges may apply.</li>
-        </ul>
-
-        <h2 class="text-xl text-orange-400 font-semibold">4. Free Trial</h2>
-        <p>Free trial may apply. After trial, subscription continues automatically unless cancelled.</p>
-
-        <h2 class="text-xl text-orange-400 font-semibold">5. How to Subscribe</h2>
-        <ul class="list-disc pl-6">
-            <li>USSD</li>
-            <li>SMS / Direct Carrier Billing</li>
-            <li>Web/WAP portal</li>
-            <li>Operator self-care portal</li>
-        </ul>
-
-        <h2 class="text-xl text-orange-400 font-semibold">6. Cancellation</h2>
-        <ul class="list-disc pl-6">
-            <li>You may cancel anytime.</li>
-            <li>Methods include SMS STOP, USSD, or website.</li>
-            <li>No refunds for unused period unless required by law.</li>
-        </ul>
-
-        <h2 class="text-xl text-orange-400 font-semibold">7. Access to Service</h2>
-        <ul class="list-disc pl-6">
-            <li>Access available during active subscription.</li>
-            <li>Requires internet and compatible device.</li>
-            <li>Content may change without notice.</li>
-        </ul>
-
-        <h2 class="text-xl text-orange-400 font-semibold">8. Acceptable Use</h2>
-        <ul class="list-disc pl-6">
-            <li>No unlawful or fraudulent use</li>
-            <li>No hacking or reverse engineering</li>
-            <li>No bots or automation</li>
-        </ul>
-
-        <h2 class="text-xl text-orange-400 font-semibold">9. Intellectual Property</h2>
-        <p>All content belongs to the Provider or licensors.</p>
-
-        <h2 class="text-xl text-orange-400 font-semibold">10. Promotions</h2>
-        <p>Promotions and competitions may have additional rules.</p>
-
-        <h2 class="text-xl text-orange-400 font-semibold">11. Service Availability</h2>
-        <p>Service is provided “as available” without guarantee of uptime.</p>
-
-        <h2 class="text-xl text-orange-400 font-semibold">12. Limitation of Liability</h2>
-        <ul class="list-disc pl-6">
-            <li>No liability for network issues or device incompatibility</li>
-            <li>No liability for data loss or indirect damages</li>
-        </ul>
-
-        <h2 class="text-xl text-orange-400 font-semibold">13. Refund Policy</h2>
-        <p>Charges are non-refundable unless required by law.</p>
-
-        <h2 class="text-xl text-orange-400 font-semibold">14. Privacy</h2>
-        <p>Data processed as per POPIA.</p>
-
-        <h2 class="text-xl text-orange-400 font-semibold">15. Consumer Rights</h2>
-        <p>All rights under South African law remain applicable.</p>
-
-        <h2 class="text-xl text-orange-400 font-semibold">16. Amendments</h2>
-        <p>Terms may be updated anytime.</p>
-
-        <h2 class="text-xl text-orange-400 font-semibold">17. Governing Law</h2>
-        <p>Republic of South Africa laws apply.</p>
-
-        <h2 class="text-xl text-orange-400 font-semibold">18. Entire Agreement</h2>
-        <p>These Terms form the full agreement.</p>
-
-    </div>
-</div>
-
-<footer class="bg-black border-t border-gray-800 py-6 text-center text-gray-400">
-    © 2026 <span class="text-orange-500">Gameofy</span>. All rights reserved.
-</footer>
+    <!-- Footer -->
+    <footer class="bg-black border-t border-gray-800 py-6 text-center text-gray-400">
+        © 2026
+        <span class="text-orange-500">GameofYY</span>.
+        All rights reserved.
+    </footer>
 
 </body>
+
 </html>
