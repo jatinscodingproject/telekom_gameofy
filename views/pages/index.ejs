@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <%- include("../includes/header") %>
+</head>
+
+<body class="bg-black text-white">
+    <div id="subscriptionBanner" class="fixed inset-0 z-[99999] flex items-center justify-center overflow-hidden">
+        <img src="/images/bg4.jpg" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black/80"></div>
+        <div class="absolute top-0 left-0 w-40 h-40 bg-orange-500/20 blur-[80px] rounded-full"></div>
+        <div class="absolute bottom-0 right-0 w-48 h-48 bg-orange-500/20 blur-[100px] rounded-full"></div>
+        <div class="relative z-10 w-full max-w-sm mx-4 text-center">
+            <h1 class="text-orange-500 font-black text-4xl md:text-5xl tracking-wide">
+                GAMEOFYY
+            </h1>
+
+            <p class="text-gray-300 text-sm mt-1">
+                Unleash Your Inner Gamer
+            </p>
+
+            <div class="mt-8 flex justify-center">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_ycxQMw822-y4Gaai3ZIp_tdfOMsTaUt4WNNaZQcDxrFHDePXwTYkwk4&s"
+                    alt="Gaming Character"
+                    class="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover border-orange-500 shadow-[0_0_30px_rgba(249,115,22,0.5)]">
+            </div>
+            
+            <button onclick="startSubscription()"
+                class="mt-6 w-[50%] bg-orange-500 hover:bg-orange-600 text-white font-black text-md py-4 rounded-2xl shadow-[0_0_25px_rgba(249,115,22,0.6)] transition-all duration-300">
+                SUBSCRIBE
+            </button>
+            <div class="mt-8 text-white">
+                <div class="font-bold text-lg">
+                    24 HOUR FREE TRIAL
+                </div>
+                <div class="font-bold text-lg">
+                    SUBSCRIPTION R7.00/DAILY
+                </div>
+                <a href="/terms"
+                    class="inline-block mt-4 text-sm text-gray-300 underline hover:text-orange-500 transition">
+                    Terms and Conditions
+                </a>
+            </div>
+        </div>
+
+    </div>
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader-container">
+            <div class="loader-ring"></div>
+            <div class="loader-ring"></div>
+            <div class="loader-logo">
+                <span class="loader-text">
+                    <span class="tex-white font-bold text-2xl">Game</span><span
+                        class="text-orange-500 font-bold text-2xl">O</span><span
+                        class="text-orange-500 font-bold text-2xl">fy</span>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content" id="mainContent">
+        <nav class="fixed top-0 left-0 w-full z-50 bg-t5ransparent backdrop-blur-sm border-b border-white/10">
+            <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+                <a href="/" class="flex items-center">
+                    <span class="text-white font-bold text-2xl">Game</span>
+                    <span class="text-orange-500 font-bold text-2xl">O</span>
+                    <span class="text-orange-500 font-bold text-2xl">fy</span>
+                </a>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="/" class="text-white hover:text-[#ff6b00]">Home</a>
+                    <a href="/#casual-games" class="text-white hover:text-[#ff6b00]">Casual Games</a>
+                    <a href="/terms" class="text-white hover:text-[#ff6b00]">Terms And Conditions</a>
+                    <button onclick="openLoginModal()"
+                        class="bg-orange-500 hover:bg-orange-600 px-5 py-2 rounded-lg text-white font-semibold transition">
+                        Subscribe
+                    </button>
+                </div>
+
+                <!-- MOBILE BUTTON -->
+                <button class="md:hidden text-white" onclick="toggleMenu()">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- MOBILE MENU -->
+            <div id="mobileMenu" class="hidden md:hidden bg-black/95 backdrop-blur-lg border-t border-white/10 z-[999991]">
+                <div class="flex flex-col space-y-4 px-6 py-6 text-center">
+
+                    <a href="/" class="text-white hover:text-orange-500">Home</a>
+                    <a href="/#casual-games" class="text-white hover:text-orange-500">Casual Games</a>
+                    <a href="/terms" class="text-white hover:text-orange-500">Terms And Conditions</a>
+
+                    <!-- MOBILE SUBSCRIBE -->
+                    <button onclick="openLoginModal()"
+                        class="bg-orange-500 hover:bg-orange-600 px-5 py-3 rounded-lg text-white font-semibold">
+                        Subscribe
+                    </button>
+
+                </div>
+            </div>
+        </nav>
+        <section class="hero-slider relative h-96 md:h-[600px] slide-up">
+            <div class="hero-slide active h-full flex items-center justify-center relative overflow-hidden">
+                <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                    style="background-image: url('/images/bg4.jpg');">
+                </div>
+                <div class="absolute inset-0 bg-black/50"></div>
+                <div class="absolute inset-0 flex items-end justify-center">
+                    <div class="text-center px-4 w-full max-w-4xl mx-auto">
+                        <h1 class="text-5xl md:text-7xl font-bold mb-6 text-white drop-shadow-2xl leading-tight"
+                            id="heroTitle">
+                            Epic Gaming Awaits
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="quote-section py-2 relative overflow-hidden">
+            <div class="max-w-4xl mx-auto px-4">
+                <div id="quoteSlider" class="relative h-40 flex items-center justify-center text-center">
+                    <div class="quote active">
+                        <div class="quote-text">Gaming is not just a hobby, it's a lifestyle</div>
+                    </div>
+                    <div class="quote">
+                        <div class="quote-text">Victory comes to those who never give up</div>
+                    </div>
+                    <div class="quote">
+                        <div class="quote-text">Your skill is your real weapon</div>
+                    </div>
+                    <div class="quote">
+                        <div class="quote-text">Play like a legend, rise like a champion</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 px-4 bg-gray-900 slide-up" id="casual-games">
+            <div class="max-w-7xl mx-auto">
+                <div class="mb-16 category-section">
+                    <div class="relative h-[100px] rounded-3xl overflow-hidden mb-8">
+                        <div class="absolute inset-0 bg-[#ff6b00]"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <h3 class="text-4xl md:text-5xl font-bold text-white">Puzzle Games</h3>
+                        </div>
+                    </div>
+
+                    <div id="puzzleGames" class="game-row"></div>
+                </div>
+                <div class="mb-16 category-section">
+                    <div class="relative h-[100px] rounded-3xl overflow-hidden mb-8">
+                        <div class="absolute inset-0 bg-[#ff6b00]"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <h3 class="text-4xl md:text-5xl font-bold text-white">Action Games</h3>
+                        </div>
+                    </div>
+
+                    <div id="actionGames" class="game-row"></div>
+                </div>
+                <div class="mb-16 category-section">
+                    <div class="relative h-[100px] rounded-3xl overflow-hidden mb-8">
+                        <div class="absolute inset-0 bg-[#ff6b00]"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <h3 class="text-4xl md:text-5xl font-bold text-white">Strategy Games</h3>
+                        </div>
+                    </div>
+
+                    <div id="strategyGames" class="game-row"></div>
+                </div>
+                <div class="mb-16 category-section">
+                    <div class="relative h-[100px] rounded-3xl overflow-hidden mb-8">
+                        <div class="absolute inset-0 bg-[#ff6b00]"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <h3 class="text-4xl md:text-5xl font-bold text-white">Arcade Games</h3>
+                        </div>
+                    </div>
+
+                    <div id="arcadeGames" class="game-row"></div>
+                </div>
+            </div>
+        </section>
+        <div id="gameModal" class="fixed inset-0 bg-black bg-opacity-90 hidden z-50 flex items-center justify-center">
+            <div class="absolute top-4 right-4 flex gap-3">
+                <button onclick="openFullscreen()" class="bg-green-600 px-4 py-2 rounded text-white">
+                    Full Preview
+                </button>
+                <button onclick="closeGame()" class="bg-red-600 px-4 py-2 rounded text-white">
+                    Close
+                </button>
+            </div>
+
+            <iframe id="gameFrame" class="w-[95%] h-[90%] bg-black rounded-xl" allowfullscreen>
+            </iframe>
+        </div>
+
+        <footer class="bg-black border-t border-gray-800 py-12 px-4">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex justify-center mb-8">
+                    <h1>
+                        <span class="tex-white font-bold text-5xl">Game</span><span
+                            class="text-orange-500 font-bold text-5xl">O</span><span
+                            class="text-orange-500 font-bold text-5xl">fy</span>
+
+                    </h1>
+                </div>
+
+                <div class="border-t border-gray-800 pt-8 text-center text-gray-400" id="footerText">
+                    © 2026
+                    <span style="color: #ff6b00;">Gameofy</span>. All rights reserved. Made for gamer lovers worldwide.
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+<script>
+function toggleMenu() {
+    const menu = document.getElementById("mobileMenu");
+    menu.classList.toggle("hidden");
+}
+</script>
+
+</html>

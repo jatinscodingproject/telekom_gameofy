@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <%- include("../includes/header") %>
+    <title>Terms & Conditions</title>
+</head>
+
+<body class="bg-black text-white">
+
+<nav class="fixed top-0 left-0 w-full z-50 bg-transparent backdrop-blur-sm border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+        <a href="/" class="flex items-center">
+            <span class="text-white font-bold text-2xl">Game</span>
+            <span class="text-orange-500 font-bold text-2xl">O</span>
+            <span class="text-orange-500 font-bold text-2xl">fy</span>
+        </a>
+        <div class="hidden md:flex items-center space-x-6">
+            <a href="/" class="text-white hover:text-[#ff6b00]">Home</a>
+            <a href="/#casual-games" class="text-white hover:text-[#ff6b00]">Casual Games</a>
+            <a href="/terms" class="text-white hover:text-[#ff6b00]">Terms And Conditions</a>
+            <button onclick="openLoginModal()" 
+                class="bg-orange-500 hover:bg-orange-600 px-5 py-2 rounded-lg text-white font-semibold transition">
+                Subscribe
+            </button>
+        </div>
+        <button class="md:hidden text-white" onclick="toggleMenu()">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+    </div>
+    <div id="mobileMenu" class="hidden md:hidden bg-black/95 backdrop-blur-lg border-t border-white/10">
+        <div class="flex flex-col space-y-4 px-6 py-6 text-center">
+            <a href="/" class="text-white hover:text-orange-500">Home</a>
+            <a href="/#casual-games" class="text-white hover:text-orange-500">Casual Games</a>
+            <a href="/terms" class="text-white hover:text-orange-500">Terms And Condtions</a>
+            <button onclick="openLoginModal()" 
+                class="bg-orange-500 hover:bg-orange-600 px-5 py-3 rounded-lg text-white font-semibold">
+                Subscribe
+            </button>
+        </div>
+    </div>
+</nav>
+<div class="pt-28 pb-16 px-4">
+    <div class="max-w-4xl mx-auto space-y-6 text-gray-300 leading-7">
+
+        <h1 class="text-4xl font-bold text-orange-500">Terms and Conditions</h1>
+
+        <p><strong>GameofYY Subscription Service – South Africa</strong></p>
+
+        <p><strong>Service Name:</strong> GameofYY<br>
+        <strong>Website:</strong> https://telza.gameofyy.com/</p>
+
+        <p>
+            These Terms and Conditions govern the use of the GameofYY subscription
+            gaming service offered to customers of a participating Mobile Network Operator
+            in South Africa. By subscribing to or using the Service, you agree to be bound by these Terms.
+        </p>
+
+        <h2 class="text-xl text-orange-400 font-semibold">1. Definitions</h2>
+        <ul class="list-disc pl-6">
+            <li>Service means the GameofYY subscription-based mobile gaming portal providing access to games and digital content.</li>
+            <li>Subscriber / User / You means the mobile customer subscribing to the Service.</li>
+            <li>Operator means the participating South African mobile network operator billing the subscription.</li>
+            <li>Provider means the owner/operator of GameofYY.</li>
+            <li>Subscription Fee means the recurring fee charged for access.</li>
+        </ul>
+
+        <h2 class="text-xl text-orange-400 font-semibold">2. Eligibility</h2>
+        <ul class="list-disc pl-6">
+            <li>You must be at least 18 years old or have guardian consent.</li>
+            <li>You must be the authorised user of the mobile number.</li>
+            <li>Service is available only on supported South African networks.</li>
+        </ul>
+
+        <h2 class="text-xl text-orange-400 font-semibold">3. Subscription and Billing</h2>
+        <ul class="list-disc pl-6">
+            <li>By subscribing, you authorise billing via Operator.</li>
+            <li>Daily: R7 per day</li>
+            <li>Charges recur automatically until cancelled.</li>
+            <li>Standard data charges may apply.</li>
+        </ul>
+
+        <h2 class="text-xl text-orange-400 font-semibold">4. Free Trial</h2>
+        <p>Free trial may apply. After trial, subscription continues automatically unless cancelled.</p>
+
+        <h2 class="text-xl text-orange-400 font-semibold">5. How to Subscribe</h2>
+        <ul class="list-disc pl-6">
+            <li>USSD</li>
+            <li>SMS / Direct Carrier Billing</li>
+            <li>Web/WAP portal</li>
+            <li>Operator self-care portal</li>
+        </ul>
+
+        <h2 class="text-xl text-orange-400 font-semibold">6. Cancellation</h2>
+        <ul class="list-disc pl-6">
+            <li>You may cancel anytime.</li>
+            <li>Methods include SMS STOP, USSD, or website.</li>
+            <li>No refunds for unused period unless required by law.</li>
+        </ul>
+
+        <h2 class="text-xl text-orange-400 font-semibold">7. Access to Service</h2>
+        <ul class="list-disc pl-6">
+            <li>Access available during active subscription.</li>
+            <li>Requires internet and compatible device.</li>
+            <li>Content may change without notice.</li>
+        </ul>
+
+        <h2 class="text-xl text-orange-400 font-semibold">8. Acceptable Use</h2>
+        <ul class="list-disc pl-6">
+            <li>No unlawful or fraudulent use</li>
+            <li>No hacking or reverse engineering</li>
+            <li>No bots or automation</li>
+        </ul>
+
+        <h2 class="text-xl text-orange-400 font-semibold">9. Intellectual Property</h2>
+        <p>All content belongs to the Provider or licensors.</p>
+
+        <h2 class="text-xl text-orange-400 font-semibold">10. Promotions</h2>
+        <p>Promotions and competitions may have additional rules.</p>
+
+        <h2 class="text-xl text-orange-400 font-semibold">11. Service Availability</h2>
+        <p>Service is provided “as available” without guarantee of uptime.</p>
+
+        <h2 class="text-xl text-orange-400 font-semibold">12. Limitation of Liability</h2>
+        <ul class="list-disc pl-6">
+            <li>No liability for network issues or device incompatibility</li>
+            <li>No liability for data loss or indirect damages</li>
+        </ul>
+
+        <h2 class="text-xl text-orange-400 font-semibold">13. Refund Policy</h2>
+        <p>Charges are non-refundable unless required by law.</p>
+
+        <h2 class="text-xl text-orange-400 font-semibold">14. Privacy</h2>
+        <p>Data processed as per POPIA.</p>
+
+        <h2 class="text-xl text-orange-400 font-semibold">15. Consumer Rights</h2>
+        <p>All rights under South African law remain applicable.</p>
+
+        <h2 class="text-xl text-orange-400 font-semibold">16. Amendments</h2>
+        <p>Terms may be updated anytime.</p>
+
+        <h2 class="text-xl text-orange-400 font-semibold">17. Governing Law</h2>
+        <p>Republic of South Africa laws apply.</p>
+
+        <h2 class="text-xl text-orange-400 font-semibold">18. Entire Agreement</h2>
+        <p>These Terms form the full agreement.</p>
+
+    </div>
+</div>
+
+<footer class="bg-black border-t border-gray-800 py-6 text-center text-gray-400">
+    © 2026 <span class="text-orange-500">Gameofy</span>. All rights reserved.
+</footer>
+
+</body>
+</html>
