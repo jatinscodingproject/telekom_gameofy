@@ -301,16 +301,224 @@ document.addEventListener("DOMContentLoaded", () => {
     setInterval(changeQuote, 3000);
 });
 
-function startSubscription() {
-    const banner = document.getElementById("subscriptionBanner");
-    const portal = document.getElementById("mainContent");
+// function startSubscription() {
+//     const banner = document.getElementById("subscriptionBanner");
+//     const portal = document.getElementById("mainContent");
 
-    if (!banner || !portal) return;
-    banner.classList.add("opacity-0", "pointer-events-none");
-    portal.classList.remove("hidden");
-    document.body.classList.remove("overflow-hidden");
+//     if (!banner || !portal) return;
+//     banner.classList.add("opacity-0", "pointer-events-none");
+//     portal.classList.remove("hidden");
+//     document.body.classList.remove("overflow-hidden");
 
-    setTimeout(() => {
-        banner.remove();
-    }, 300);
+//     setTimeout(() => {
+//         banner.remove();
+//     }, 300);
+// }
+
+async function startSubscription() {
+
+    const banner = document.getElementById('subscriptionBanner');
+    const portal = document.getElementById('mainContent');
+
+    if (!banner || !portal) {
+        console.error('Subscription elements not found');
+        return;
+    }
+
+    // -------------------------------------------------
+    // Subscription details
+    // -------------------------------------------------
+
+    const svcId = 300000146;
+
+    // Get MSISDN from banner
+    const msisdn = banner.dataset.msisdn?.trim() || '';
+
+    // IMPORTANT:
+    // Keep ext_ref as STRING
+    const extRef = '123456789012345678901234567890';
+
+
+    console.log('MSISDN:', msisdn);
+    console.log('Service ID:', svcId);
+    console.log('External Reference:', extRef);
+
+
+    if (!svcId) {
+        alert('Service ID is missing.');
+        return;
+    }
+
+    if (!extRef) {
+        alert('Subscription reference is missing.');
+        return;
+    }
+
+
+    // =================================================
+    // AUTOMATIC FLOW SELECTION
+    // =================================================
+
+    if (msisdn) {
+
+        // =============================================
+        // CLICK / ON-NET FLOW
+        // MSISDN IS AVAILABLE
+        // =============================================
+
+        console.log('Subscription flow: CLICK');
+        console.log('MSISDN available:', msisdn);
+
+        try {
+
+            const response = await fetch(
+                '/api/telkom/subscriptions',
+                {
+                    method: 'POST',
+
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+
+                    body: JSON.stringify({
+
+                        msisdn: msisdn,
+
+                        svc_id: Number(svcId),
+
+                        ext_ref: extRef,
+
+                        // User came from WAP/click
+                        channel: 'WAP',
+
+                        // Request WAP DOI
+                        doi_channel: 'WAP'
+
+                    })
+                }
+            );
+
+
+            const result = await response.json();
+
+
+            console.log(
+                'Telkom subscription response:',
+                result
+            );
+
+
+            if (!response.ok || !result.success) {
+
+                alert(
+                    result.message ||
+                    'Unable to start subscription.'
+                );
+
+                return;
+            }
+
+
+            // =========================================
+            // TELKOM WAP DOI REDIRECT
+            // =========================================
+
+            if (result.consentUrl) {
+
+                console.log(
+                    'Redirecting to Telkom Consent Gateway:',
+                    result.consentUrl
+                );
+
+                window.location.href =
+                    result.consentUrl;
+
+                return;
+            }
+
+
+            // =========================================
+            // SUBSCRIPTION CREATED
+            // =========================================
+
+            console.log(
+                'Subscription created:',
+                result.data
+            );
+
+
+            banner.classList.add(
+                'opacity-0',
+                'pointer-events-none'
+            );
+
+            portal.classList.remove('hidden');
+
+            document.body.classList.remove(
+                'overflow-hidden'
+            );
+
+
+            setTimeout(() => {
+
+                banner.remove();
+
+            }, 300);
+
+
+        } catch (error) {
+
+            console.error(
+                'Click subscription error:',
+                error
+            );
+
+            alert(
+                'Something went wrong while starting your subscription.'
+            );
+        }
+
+        return;
+    }
+
+
+    // =================================================
+    // WIFI FLOW
+    // MSISDN NOT AVAILABLE
+    // =================================================
+
+    console.log('Subscription flow: WIFI');
+    console.log('MSISDN not available');
+
+
+    try {
+
+        const consentUrl =
+            '/api/telkom/consent/direct' +
+            `?svc_id=${encodeURIComponent(svcId)}` +
+            `&ext_ref=${encodeURIComponent(extRef)}`;
+
+
+        console.log(
+            'Redirecting to Wi-Fi Consent Gateway:',
+            consentUrl
+        );
+
+
+        window.location.href =
+            consentUrl;
+
+
+    } catch (error) {
+
+        console.error(
+            'Wi-Fi subscription error:',
+            error
+        );
+
+        alert(
+            'Something went wrong while starting your subscription.'
+        );
+    }
 }

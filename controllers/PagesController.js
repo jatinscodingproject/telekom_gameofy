@@ -2,6 +2,7 @@ const axios = require("axios");
 
 exports.homePage = async (req, res) => {
     try {
+        console.log("headers" , req.headers);
         return res.render("pages/index", {
             title: "Home Page",
         }); 
