@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <%- include("../includes/header") %>
+
+        <style>
+            /* Animated Background */
+            
+            body {
+                background: linear-gradient(135deg, #0a0a0a, #1a0f0f, #000000, #1a0f0f);
+                background-size: 300% 300%;
+                animation: bgMove 12s ease infinite;
+            }
+            
+            @keyframes bgMove {
+                0% {
+                    background-position: 0% 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+                100% {
+                    background-position: 0% 50%;
+                }
+            }
+            /* Login Box */
+            
+            .login-box {
+                background: rgba(0, 0, 0, 0.55);
+                border: 1px solid rgba(216, 68, 89, 0.4);
+                border-radius: 18px;
+                padding: 2.5rem;
+                width: 100%;
+                max-width: 420px;
+                box-shadow: 0 0 20px rgba(216, 68, 89, 0.5);
+                backdrop-filter: blur(10px);
+                animation: fadeIn 1s ease-in-out;
+            }
+            /* Fade animation */
+            
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            
+            .login-input {
+                background: rgba(255, 255, 255, 0.1);
+                border: 1px solid rgba(216, 68, 89, 0.3);
+                color: white;
+                padding: .8rem;
+                border-radius: 10px;
+                width: 100%;
+            }
+            
+            .login-input:focus {
+                border-color: #ff6b00;
+                box-shadow: 0 0 10px rgba(216, 68, 89, 0.6);
+            }
+            
+            .login-button {
+                background: #ff6b00;
+                border-radius: 12px;
+                padding: .8rem;
+                width: 100%;
+                font-size: 1.1rem;
+                font-weight: bold;
+                transition: 0.3s;
+            }
+            
+            .login-button:hover {
+                background: #be2f47;
+                box-shadow: 0 0 15px rgba(216, 68, 89, 0.8);
+            }
+            
+            .login-logo {
+                height: 110px;
+                filter: drop-shadow(0 0 15px rgba(216, 68, 89, 0.6));
+            }
+        </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center p-4">
+    <div class="login-box text-center">
+        <img src="/images/bbb.png" class="login-logo mb-6 mx-auto block" alt="GameOn Logo">
+
+        <h2 class="text-3xl font-bold mb-6 text-[#ff6b00]">Welcome Back Gamer</h2>
+
+        <form action="/login" method="POST" class="space-y-5">
+            <div>
+                <input type="text" placeholder="Phone Number" name="msisdn" class="login-input" required>
+            </div>
+
+            <button type="submit" class="login-button">
+                Login
+            </button>
+        </form>
+    </div>
+</body>
+
+
+</html>

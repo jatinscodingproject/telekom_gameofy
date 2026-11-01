@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <%- include("../includes/header") %>
+    <style>
+        body { background: linear-gradient(135deg, #0a0a0a, #1a0f0f, #000000, #1a0f0f); }
+        .box { background: rgba(0,0,0,.55); border: 1px solid rgba(255,107,0,.4); border-radius: 18px; padding: 2.5rem; max-width: 420px; width: 100%; box-shadow: 0 0 20px rgba(255,107,0,.35); }
+        .spin { width: 44px; height: 44px; border: 4px solid rgba(255,255,255,.2); border-top-color: #ff6b00; border-radius: 50%; animation: s 1s linear infinite; margin: 0 auto 1rem; }
+        @keyframes s { to { transform: rotate(360deg); } }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4 text-white">
+    <div class="box text-center">
+        <div class="mb-4"><span class="font-bold text-2xl">Game</span><span class="text-orange-500 font-bold text-2xl">Ofy</span></div>
+        <div id="spinner" class="spin"></div>
+        <h2 id="title" class="text-2xl font-bold text-[#ff6b00] mb-2">Confirming your subscription…</h2>
+        <p id="msg" class="text-gray-300 mb-4">Please wait while we confirm with your network operator.</p>
+        <a id="cta" href="/" class="hidden inline-block bg-orange-500 hover:bg-orange-600 px-6 py-3 rounded-lg font-semibold">Start playing</a>
+        <button id="resend" class="hidden mt-3 underline text-sm text-gray-300">Resend confirmation SMS</button>
+    </div>
+
+<script>
+(function () {
+    var tries = 0, MAX = 60;                       // ~3 minutes @ 3s
+    var $ = function (id) { return document.getElementById(id); };
+
+    function done(title, msg, ok) {
+        $('spinner').classList.add('hidden');
+        $('title').textContent = title;
+        $('msg').textContent = msg;
+        $('cta').classList.remove('hidden');
+        $('cta').textContent = ok ? 'Start playing' : 'Back to home';
+    }
+
+    function poll() {
+        fetch('/api/subscribe/status', { headers: { Accept: 'application/json' }, credentials: 'same-origin' })
+            .then(function (r) { return r.json(); })
+            .then(function (s) {
+                if (s.entitled) return done('You are subscribed 🎉', 'Welcome to GameOfy. A confirmation SMS has been sent to you.', true);
+                if (s.state === 'DOI_FAILED') return done('Not confirmed', 'The subscription was not confirmed, so you have not been charged.', false);
+                if (s.state === 'CANCELLED' || s.state === 'EXPIRED') return done('Subscription ended', 'This subscription is no longer active.', false);
+                if (s.state === 'FAILED') return done('Something went wrong', 'We could not complete your subscription. Please try again.', false);
+                if (s.canResendDoi) $('resend').classList.remove('hidden');
+                if (++tries >= MAX) return done('Still waiting…', 'We have not received confirmation yet. If you confirmed, refresh this page in a minute.', false);
+                setTimeout(poll, 3000);
+            })
+            .catch(function () { if (++tries < MAX) setTimeout(poll, 5000); });
+    }
+
+    $('resend').addEventListener('click', function () {
+        fetch('/api/subscribe/resend-doi', { method: 'POST', credentials: 'same-origin' })
+            .then(function (r) { return r.json(); })
+            .then(function (j) { $('msg').textContent = j.success ? 'Confirmation SMS re-sent.' : (j.message || 'Could not resend.'); });
+    });
+    poll();
+})();
+</script>
+</body>
+</html>
