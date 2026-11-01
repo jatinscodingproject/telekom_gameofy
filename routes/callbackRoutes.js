@@ -1,5 +1,6 @@
 const express = require('express');
 const c = require('../controllers/callbackController');
+<<<<<<< HEAD
 const { callbackGuard } = require('../middleware/auth');
 const router = express.Router();
 
@@ -10,4 +11,9 @@ const router = express.Router();
 router.post(['/subscription', '/subscription/:token'], callbackGuard, c.subscription);
 router.post(['/billing', '/billing/:token'], callbackGuard, c.billing);
 
+=======
+const router = express.Router();
+router.post('/subscription', c.subscription);
+router.post('/billing', c.billing);
+>>>>>>> 58c7b0da7a779c9c70a615c12ec4b7a246708d69
 module.exports = router;

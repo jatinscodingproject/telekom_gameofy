@@ -1,15 +1,6 @@
 const svc = require('../services/subscriptionService');
 
-/**
- * Contract with PartnerHUB (PDF section "Notification API"):
- *  - Reply 2xx quickly => notification considered delivered.
- *  - Anything else => Telkom retries ~every 30 min for 6 h (12 attempts).
- *
- * Our policy:
- *  1. Store the raw event first (dedupe by content hash).
- *  2. Process it. If processing throws (DB down) => 500 so Telkom retries later.
- *  3. Business "ignore" outcomes (stale / illegal transition) are still 200 - retrying cannot fix them.
- */
+
 exports.subscription = async (req, res) => {
   const reason = (req.get('Reason') || '').trim().toUpperCase() || null;   // ACTIVATED | SUSPENDED | EXPIRED | CANCELLED | DOI_FAILED
   const payload = req.body;
@@ -55,4 +46,32 @@ exports.billing = async (req, res) => {
     if (event) await event.update({ error_message: err.message }).catch(() => {});
     return res.status(500).json({ received: false });
   }
+
+const config = require('../config/env');
+
+function checkIp(req) {
+  if (!config.callbackIps.length) return true; // Configure when Telkom supplies the allowlist.
+  const forwarded = (req.headers['x-forwarded-for'] || '').split(',')[0].trim();
+  const ip = forwarded || req.ip;
+  return config.callbackIps.includes(ip) || config.callbackIps.includes(ip.replace(/^::ffff:/, ''));
+}
+
+exports.subscription = (req, res) => {
+  if (!checkIp(req)) return res.status(403).json({ success: false, message: 'Forbidden' });
+
+  const reason = req.get('Reason') || req.get('reason') || null;
+  console.log('[TELKOM SUBSCRIPTION CALLBACK]', { reason, body: req.body });
+
+  // TODO: Persist/update your local subscription here.
+  // Return 2xx so PartnerHUB does not retry the same notification.
+  return res.status(200).json({ received: true });
+};
+
+exports.billing = (req, res) => {
+  if (!checkIp(req)) return res.status(403).json({ success: false, message: 'Forbidden' });
+
+  console.log('[TELKOM BILLING CALLBACK]', req.body);
+
+  // TODO: Persist billing event using billing_ref as your idempotency key.
+  return res.status(204).send();
 };
